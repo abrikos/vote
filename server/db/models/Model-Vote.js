@@ -12,7 +12,8 @@ const modelSchema = new Schema({
         description: {type: String, label: 'Описание', control: 'markdown'},
         published: {type: Boolean},
         votes: [{type: Number}],
-        count: {type: Number},
+        days: {type: Number, label:'Дни пока действительно'},
+        count: {type: Number, label:'Количество голосов'},
         user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
         photo: {type: mongoose.Schema.Types.ObjectId, ref: 'File'},
         files: [{type: mongoose.Schema.Types.ObjectId, ref: 'File'}],
@@ -56,9 +57,18 @@ modelSchema.virtual('adminLink')
         return `/admin/${path}/${this.id}/update`
     });
 
-modelSchema.virtual('editable')
+modelSchema.virtual('enabled')
     .get(function () {
-        return this.votes.length >= this.count
+        const d = new Date().valueOf();
+        return (this.votes.length < this.count) || d < moment(this.createdAt).add(1,'days').valueOf()
+    });
+modelSchema.virtual('for')
+    .get(function () {
+        return this.votes.filter(v=>v).length
+    });
+modelSchema.virtual('against')
+    .get(function () {
+        return this.votes.filter(v=>!v).length
     });
 
 modelSchema.virtual('voteProcess')

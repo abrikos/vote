@@ -8,7 +8,7 @@ export default function ThemeMain(props) {
 
 
     return <div className="theme-main">
-        <div className="container-fluid">
+        <div className="container">
             <MenuTop {...props}/>
             {props.errorPage || props.routeResult}
         </div>

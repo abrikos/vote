@@ -16,10 +16,12 @@ export default function ShareButtons(props) {
 
 
     return <div>
-        <h3 className="text-center">Поделись с друзьями</h3>
-        <code>{link}</code>
-        <CopyButton text={link}/>
-        <div className="share-button d-flex justify-content-center flex-wrap">
+        <div className="alert alert-info">
+            <code className="m-2">{link}</code>
+            <CopyButton text={link}/>
+        </div>
+        {!props.noSocial && <div className="share-button d-flex justify-content-center flex-wrap">
+            <h3 className="text-center">Поделись с друзьями</h3>
             {blogs.map((b, i) => {
                 const x = params.offsetX + (params.iconWidth + params.spaceX) * b.col;
                 const y = params.offsetY + (params.iconHeight + params.spaceY) * b.row;
@@ -33,7 +35,7 @@ export default function ShareButtons(props) {
                 };
                 return <a key={i} className="share-icon" style={style} href={b.link + encodeURIComponent(link)} target="_blank" rel="noopener noreferrer">{' '}</a>
             })}
-        </div>
+        </div>}
         {/*<img src={Icons} className="border"/>*/}
 
     </div>

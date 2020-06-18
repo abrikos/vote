@@ -21,11 +21,8 @@ export default function CopyButton(props) {
     }
 
     const id='cpbtn'+md5(props.text)
-    return <span>
-            <FontAwesomeIcon size="sm" icon={faCopy}
-                             onClick={e => copyToClipboard(props.text)}
-                             title={`Press to copy: ${props.text}`}
-                             style={{cursor: 'pointer', color: '#555'}} id={id}/>
+    return <span style={{cursor: 'pointer', color: '#555'}} id={id} onClick={e => copyToClipboard(props.text)} title={`Press to copy: ${props.text}`}>
+            <FontAwesomeIcon size="sm" icon={faCopy}/> Копировать
             <Popover placement={'right'}
                      isOpen={showPopOver}
                      target={id}>

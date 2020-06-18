@@ -11,6 +11,7 @@ module.exports.controller = function (app) {
 
     app.post('/api/cabinet/vote/list', passportLib.isLogged, (req, res) => {
         Mongoose.vote.find({user: req.session.userId})
+            .sort(req.body.sort || req.body.order || {createdAt:-1})
             .populate(Mongoose.vote.populationAdmin)
             .then(list => res.send(list))
             .catch(e => res.send(app.locals.sendError({error: 500, message: e.message})))
@@ -32,9 +33,10 @@ module.exports.controller = function (app) {
             .populate(Mongoose.vote.populationAdmin)
             .then(vote => {
                 if (!vote) return res.status(404).send({message: `No Vote with id ${req.params.id}`})
-                if(vote.editable){
+                if(vote.enabled){
                     vote.votes.push(req.body.vote)
-                    vote.save(v=>res.send(v))
+                    vote.save()
+                        .then(v=>res.send(v))
                 }else{
                     return res.status(404).send({message: `Голосование завершено`})
                 }
@@ -54,7 +56,7 @@ module.exports.controller = function (app) {
                     if (req.body[field] !== null) model[field] = req.body[field];
                 }
                 model.save()
-                res.sendStatus(200)
+                res.send(model)
             })
             .catch(e => res.send(app.locals.sendError({error: 500, message: e.message})))
     });

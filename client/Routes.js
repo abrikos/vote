@@ -7,6 +7,7 @@ import Contacts from "client/pages/contacts/contacs";
 import SiteMap from "client/pages/SiteMap";
 import ModelList from "client/pages/model/ModelList";
 import VoteUpdate from "client/pages/cabinet/VoteUpdate";
+import VoteProcess from "client/pages/cabinet/VoteProcess";
 
 export default function Routes(props) {
 
@@ -25,6 +26,7 @@ export default function Routes(props) {
         "/admin/:control": (params) => <AdminIndex {...params} {...props}/>,
         "/admin/:control/:id/update": (params) => <AdminIndex {...params} {...props}/>,
         "/cabinet/vote/:id/update": (params) => <VoteUpdate {...params} {...props}/>,
+        "/vote/:id/:link": (params) => <VoteProcess {...params} {...props}/>,
 
 
         //"/persons/:type": (params) => <PersonListLarge {...params} {...props}/>,

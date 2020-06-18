@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {FormGroup, Input, Label} from "reactstrap";
+import {FormFeedback, FormGroup, Input, Label} from "reactstrap";
 import MyBreadCrumb from "client/components/MyBreadCrumb";
 import MarkdownEditor from "client/components/markdown-editor/MarkdownEditor";
 import FileUpload from "client/components/file-list/FileUpload";
-import VoteProcess from "client/pages/cabinet/VoteProcess";
+import ShareButtons from "client/components/share-button/ShareButtons";
+import {A} from "hookrouter"
 
 export default function VoteUpdate(props) {
     const [model, setModel] = useState()
@@ -25,6 +26,7 @@ export default function VoteUpdate(props) {
                 form[e.target.name] = e.target.value;
         }
         props.api(`/cabinet/vote/${model.id}/update`, form)
+            .then(setModel)
     }
 
     function uploadDone(files) {
@@ -49,7 +51,8 @@ export default function VoteUpdate(props) {
 
                 <FormGroup>
                     <Label>Название</Label>
-                    <Input defaultValue={model.name} name="name" onChange={setField}/>
+                    <Input defaultValue={model.name} name="name" onChange={setField} invalid={!model.name}/>
+                    <FormFeedback>Обязательное поле</FormFeedback>
                 </FormGroup>
 
                 <FormGroup>
@@ -59,7 +62,8 @@ export default function VoteUpdate(props) {
 
                 <FormGroup>
                     <Label>Количество голосов</Label>
-                    <Input defaultValue={model.count} name="count" onChange={setField} type="number"/>
+                    <Input defaultValue={model.count} name="count" onChange={setField} type="number" invalid={!model.count}/>
+                    <FormFeedback>Должно быть больше 0</FormFeedback>
                 </FormGroup>
 
                 <FormGroup check>
@@ -75,6 +79,9 @@ export default function VoteUpdate(props) {
             </div>
         </div>
 
-        <VoteProcess {...props}/>
+        <A href={model.link}>Перейти
+        к голосованию</A>
+        <ShareButtons noSocial link={model.shareLink}/>
+        {/*<VoteProcess {...props}/>*/}
     </div>
 }
