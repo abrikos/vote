@@ -60,7 +60,7 @@ modelSchema.virtual('adminLink')
 modelSchema.virtual('enabled')
     .get(function () {
         const d = new Date().valueOf();
-        return (this.votes.length < this.count) || d < moment(this.createdAt).add(1,'days').valueOf()
+        return (this.votes.length < this.count) || (this.days>0 && d < moment(this.createdAt).add(this.days,'days').valueOf())
     });
 modelSchema.virtual('for')
     .get(function () {
