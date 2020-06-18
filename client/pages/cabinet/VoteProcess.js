@@ -8,22 +8,20 @@ export default function VoteProcess(props) {
     const [alreadyVoted, setAlreadyVoted] = useState(props.getCookie(cookieName))
 
 
-
-
     useEffect(() => {
         getModel()
-        setInterval(getModel, 2000)
+        setInterval(getModel, 5000)
 
     }, [])
 
     function getModel() {
-        props.api(`/vote/${props.id}/view`)
+        props.api(`/vote/${props.id}/view`, null, {noLog: true})
             .then(setModel)
     }
 
     function doVote(e) {
         props.api(`/vote/${props.id}/process`, {vote: e.target.value})
-            .then(v=> {
+            .then(v => {
                 setModel(v)
                 setAlreadyVoted(1)
                 const d = new Date().valueOf() + 1000 * 3600 * 24 * model.days;
@@ -34,18 +32,19 @@ export default function VoteProcess(props) {
 
     if (!model) return <div></div>
     return <div>
-        <h1><span className="text-success">Тайное голосование:</span> {model.name}</h1>
+        <span className="text-success">Тайное голосование:</span>
+        <h1>{model.name}</h1>
         <div className="alert alert-info"><MarkDown source={model.description}/></div>
         {!model.count && <div className="alert alert-danger">Автор не установил количество голосующих</div>}
-        Проголосовало: <strong>{model.votes.length}</strong>,
-        Не проголосовало: <strong>{model.count - model.votes.length}</strong>,
         {model.enabled ? <div>
                 {alreadyVoted ? <div>
                     <h3>Ваш голос принят</h3>
-                </div>:<div>
-                    <h3>Ваш выбор:</h3>
-                    <Button onClick={doVote} value={1} color="success">За</Button>
-                    <Button onClick={doVote} value={0} color="warning">Против</Button>
+                </div> : <div className="p-5">
+                    {/*<h3 className="text-center">Ваш выбор:</h3>*/}
+                    <div className="d-flex justify-content-around">
+                    <Button onClick={doVote} value={1} color="success" className="w-25">За</Button>
+                    <Button onClick={doVote} value={0} color="warning" className="w-25">Против</Button>
+                    </div>
                 </div>}
 
             </div>
@@ -65,5 +64,8 @@ export default function VoteProcess(props) {
                     </tbody>
                 </table>
             </div>}
+        Проголосовало: <strong>{model.votes.length}</strong>,
+        Не проголосовало: <strong>{model.count - model.votes.length}</strong>,
+
     </div>
 }
