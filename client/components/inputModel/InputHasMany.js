@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Button, Dropdown, DropdownMenu, DropdownToggle} from "reactstrap";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faWindowClose} from "@fortawesome/free-solid-svg-icons";
+import {Dropdown, DropdownMenu, DropdownToggle} from "reactstrap";
 import {A} from "hookrouter"
 
 export default function (props) {
     const [value, setValue] = useState([])
-    const [selected, setSelected] = useState([])
+    //const [selected, setSelected] = useState([])
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
     const list = props.list;
@@ -14,25 +12,19 @@ export default function (props) {
         setValue(props.value)
     }, [])
 
-    function addHasMany(e) {
-        const currValue = [...value];
-        setValue(currValue.concat(selected))
-        toggle()
-    }
-
     function selectValues(e) {
         const vals = [];
         for (const o of e.target.options) {
             if (o.selected) vals.push(list.find(m => m.id === o.value))
         }
-        setSelected(vals)
+        //setSelected(vals)
         const currValue = [...value];
         setValue(currValue.concat(vals))
         toggle()
     }
 
     function remove(id) {
-        setValue(value.filter(v=>v.id!==id))
+        setValue(value.filter(v => v.id !== id))
     }
 
     return <div className="input-has-many">
@@ -43,7 +35,7 @@ export default function (props) {
         <div className="items-attached">
             {value.map((item, i) => <span key={i} className="has-many-item">
                 <A href={`/admin/${props.field.options.ref.toLowerCase()}/${item.id}/update`}>{item[props.field.options.property]}</A>
-                {!props.field.options.readOnly && <span  className="hasMany-remove">
+                {!props.field.options.readOnly && <span className="hasMany-remove">
                     <input type="checkbox" onChange={() => remove(item.id)} checked/>
                 </span>}
             </span>)}

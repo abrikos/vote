@@ -34,9 +34,6 @@ export default function FileList(props) {
         toggle();
     }
 
-    function setOrder(e) {
-        //props.api(`/file/order/${img.id}/${e.target.value}`)
-    }
 
     if (!props.files) return <div/>;
     return <div className="image-list">

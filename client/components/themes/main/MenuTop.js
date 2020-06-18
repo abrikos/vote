@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 import {Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, UncontrolledDropdown,} from "reactstrap";
 import {A, navigate, usePath} from "hookrouter";
 import logo from "public/logo.svg"
@@ -13,14 +12,21 @@ export default function MenuTop(props) {
         return path === currentPath;
     }
 
-    const items=[
-        {label:'Начало', path:'/'},
-        {label: `${(props.authenticatedUser && props.authenticatedUser.displayName)}`, items:[
+    const items = [
+        {label: 'Начало', path: '/'},
+        {
+            label: `${(props.authenticatedUser && props.authenticatedUser.displayName)}`, items: [
                 {label: 'ADMIN', path: '/admin/post', hidden: !(props.authenticatedUser && props.authenticatedUser.isAdmin)},
                 {label: 'Кабинет', path: '/cabinet'},
                 {label: 'Выход', onClick: props.logOut, hidden: !props.authenticatedUser},
-            ], hidden: !props.authenticatedUser},
-        {label: 'Вход', onClick:()=>{props.updateReturnUrl(window.location.pathname); navigate('/login')}, pathX: '/login?xx', hidden: props.authenticatedUser},
+            ], hidden: !props.authenticatedUser
+        },
+        {
+            label: 'Вход', onClick: () => {
+                props.updateReturnUrl(window.location.pathname);
+                navigate('/login')
+            }, pathX: '/login?xx', hidden: props.authenticatedUser
+        },
     ]
 
     return <div>

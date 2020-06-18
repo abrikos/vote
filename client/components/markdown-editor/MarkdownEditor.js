@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./markdown.sass"
 import MarkDown from "react-markdown";
 import PropTypes from "prop-types";
-import {Button, Input} from "reactstrap";
+import {Input} from "reactstrap";
 import {ModalDialog} from "client/components/ModalDialog";
 
 MarkdownEditor.propTypes = {
@@ -32,7 +32,7 @@ export default function MarkdownEditor(props) {
             header="Форматированный текст"
             //controls={[<Button onClick={submit} color="primary">Отправить</Button>, <Button onClick={clear} color="warning">Отменить</Button>]}
             buttonText="Предпросмотр"/>
-            <Input name={props.name} defaultValue={value} invalid={props.invalid} type="textarea" rows={3} onChange={handleChange}/>
+        <Input name={props.name} defaultValue={value} invalid={props.invalid} type="textarea" rows={3} onChange={handleChange}/>
 
     </>
 
