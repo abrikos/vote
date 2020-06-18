@@ -69,6 +69,7 @@ export default function VoteUpdate(props) {
                 <FormGroup>
                     <Label>Количество дней активности</Label>
                     <Input defaultValue={model.days} name="days" onChange={setField} type="number"/>
+                    <small>0 или меньше - активность не ограничена по-времени</small>
                 </FormGroup>
 
                 <FormGroup check>
