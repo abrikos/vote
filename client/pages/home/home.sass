@@ -1,0 +1,73 @@
+@import "../../components/themes/params"
+
+.home
+  table.projects
+    border-collapse: separate
+    border-spacing: 10px
+    td
+      text-align: center
+      width: 50%
+      border: 1px solid #0c5460
+      padding: 10px
+    td.colored
+      background: #1bbe74
+      a
+        color: #0b2e13
+  .first-news
+    margin-bottom: 10px
+    .first-news-img
+      margin-bottom: 10px
+      img
+        display: block
+        margin: auto
+  .rest-news
+    .first-news-img
+      overflow: hidden
+      height: 120px
+
+  .post-small
+    height: 50%
+    box-shadow: none
+    display: flex
+    .post-small-text
+      display: none
+    .post-small-content
+      padding: 0 10px
+      width: 70%
+    .post-small-image
+      width: 30%
+
+  .pages
+    a
+      display: block
+    h2
+      margin: 40px 0
+    div:nth-child(odd)
+      flex-direction: row-reverse
+    div
+      margin: 30px 0
+      img
+        max-width: 100%
+        border-radius: 120px
+  .home-carousel
+    overflow: hidden
+    .carousel-item
+      text-align: center
+      .plain-caption
+        @media screen and (min-width: $min-width)
+          display: none
+
+      img
+        display: block
+        margin: auto
+
+        @media screen and (max-width: $min-width)
+          height: 200px
+
+        @media screen and (min-width: $min-width)
+          max-height: 400px
+        max-width: 100%
+    .carousel-caption
+      background-color: rgba(74, 145, 253, 0.8)
+#feedback-form
+  font-size: .9em

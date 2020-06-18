@@ -1,0 +1,4 @@
+{
+  "watch": ["server", "app.js", "server/lib", "server/controllers", "server/db", "server/bot"],
+  "ext": "js, css"
+}

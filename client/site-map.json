@@ -1,0 +1,345 @@
+[
+  {
+    "label": "Главная",
+    "pages": [],
+    "path": "/",
+    "isMenu": -1
+  },
+  {
+    "label": "Издания",
+    "pages": [
+      "izdaniya"
+    ],
+    "isMenu": 8,
+    "path": "/izdaniya"
+  },
+  {
+    "label": "Интеллектуальная собственность",
+    "pages": [
+      "intellektualnaya-sobstvennost"
+    ],
+    "path": "/intellektualnaya-sobstvennost"
+  },
+  {
+    "label": "Карта сайта",
+    "pages": [
+      "karta-sajta"
+    ],
+    "path": "/karta-sajta"
+  },
+  {
+    "label": "Комплексные научные исследования",
+    "pages": [
+      "kompleksnye-nauchnye-issledovaniya"
+    ],
+    "path": "/kompleksnye-nauchnye-issledovaniya"
+  },
+  {
+    "label": "Контакты",
+    "pages": [
+      "kontakty"
+    ],
+    "isMenu": 9,
+    "path": "/kontakty"
+  },
+  {
+    "label": "Научные учреждения",
+    "pages": [
+      "nauchnye-uchrezhdeniya"
+    ],
+    "path": "/nauchnye-uchrezhdeniya"
+  },
+  {
+    "label": "Новости",
+    "pages": [
+      "novosti"
+    ],
+    "isMenu": 7,
+    "path": "/novosti"
+  },
+  {
+    "label": "О Республике",
+    "pages": [
+      "o-respublike"
+    ],
+    "isMenu": 6,
+    "path": "/o-respublike"
+  },
+  {
+    "label": "Об Академии",
+    "pages": [
+      "ob-akademii"
+    ],
+    "isMenu": 1,
+    "path": "/ob-akademii"
+  },
+  {
+    "label": "Объединённые учёные советы",
+    "pages": [
+      "obedinyonnye-uchyonye-sovety"
+    ],
+    "isMenu": 3,
+    "path": "/obedinyonnye-uchyonye-sovety"
+  },
+  {
+    "label": "ОУС по гуманитарным наукам",
+    "pages": [
+      "obedinyonnye-uchyonye-sovety",
+      "ous-po-gumanitarnym-naukam"
+    ],
+    "path": "/obedinyonnye-uchyonye-sovety-ous-po-gumanitarnym-naukam"
+  },
+  {
+    "label": "ОУС по медико-биологическим и химическим наукам",
+    "pages": [
+      "obedinyonnye-uchyonye-sovety",
+      "ous-po-mediko-biologicheskim-i-ximicheskim-naukam"
+    ],
+    "path": "/obedinyonnye-uchyonye-sovety-ous-po-mediko-biologicheskim-i-ximicheskim-naukam"
+  },
+  {
+    "label": "ОУС по наукам о Земле",
+    "pages": [
+      "obedinyonnye-uchyonye-sovety",
+      "ous-po-naukam-o-zemle"
+    ],
+    "path": "/obedinyonnye-uchyonye-sovety-ous-po-naukam-o-zemle"
+  },
+  {
+    "label": "ОУС по сельскохозяйственным наукам",
+    "pages": [
+      "obedinyonnye-uchyonye-sovety",
+      "ous-po-selskoxozyajstvennym-naukam"
+    ],
+    "path": "/obedinyonnye-uchyonye-sovety-ous-po-selskoxozyajstvennym-naukam"
+  },
+  {
+    "label": "ОУС по физико-техническим наукам",
+    "pages": [
+      "obedinyonnye-uchyonye-sovety",
+      "ous-po-fiziko-texnicheskim-naukam"
+    ],
+    "path": "/obedinyonnye-uchyonye-sovety-ous-po-fiziko-texnicheskim-naukam"
+  },
+  {
+    "label": "Палеонтологические выставки",
+    "pages": [
+      "paleontologicheskie-vystavki"
+    ],
+    "path": "/paleontologicheskie-vystavki"
+  },
+  {
+    "label": "Партнёры",
+    "pages": [
+      "partnyory"
+    ],
+    "path": "/partnyory"
+  },
+  {
+    "label": "Правительство Республики Саха (Якутия)",
+    "pages": [
+      "pravitelstvo-respubliki-saxa-yakutiya"
+    ],
+    "path": "/pravitelstvo-respubliki-saxa-yakutiya"
+  },
+  {
+    "label": "Президиум",
+    "pages": [
+      "prezidium"
+    ],
+    "isMenu": 5,
+    "path": "/prezidium"
+  },
+  {
+    "label": "Аппарат Академии наук РС(Я)",
+    "pages": [
+      "prezidium",
+      "apparat-akademii-nauk-rsya"
+    ],
+    "path": "/prezidium-apparat-akademii-nauk-rsya"
+  },
+  {
+    "label": "Действительные члены",
+    "pages": [
+      "prezidium",
+      "dejstvitelnye-chleny"
+    ],
+    "path": "/prezidium-dejstvitelnye-chleny"
+  },
+  {
+    "label": "Иностранные члены",
+    "pages": [
+      "prezidium",
+      "inostrannye-chleny"
+    ],
+    "path": "/prezidium-inostrannye-chleny"
+  },
+  {
+    "label": "Почётные члены",
+    "pages": [
+      "prezidium",
+      "pochyotnye-chleny"
+    ],
+    "path": "/prezidium-pochyotnye-chleny"
+  },
+  {
+    "label": "Руководство президиума",
+    "pages": [
+      "prezidium",
+      "rukovodstvo-prezidiuma"
+    ],
+    "path": "/prezidium-rukovodstvo-prezidiuma"
+  },
+  {
+    "label": "Секретариат",
+    "pages": [
+      "prezidium",
+      "sekretariat"
+    ],
+    "path": "/prezidium-sekretariat"
+  },
+  {
+    "label": "Проекты",
+    "pages": [
+      "proekty"
+    ],
+    "isMenu": 4,
+    "path": "/proekty"
+  },
+  {
+    "label": "История Якутии",
+    "pages": [
+      "proekty",
+      "istoriya-yakutii"
+    ],
+    "path": "/proekty-istoriya-yakutii"
+  },
+  {
+    "label": "Том второй",
+    "pages": [
+      "proekty",
+      "istoriya-yakutii",
+      "tom-vtoroj"
+    ],
+    "path": "/proekty-istoriya-yakutii-tom-vtoroj"
+  },
+  {
+    "label": "Том первый",
+    "pages": [
+      "proekty",
+      "istoriya-yakutii",
+      "tom-pervyj"
+    ],
+    "path": "/proekty-istoriya-yakutii-tom-pervyj"
+  },
+  {
+    "label": "Том третий",
+    "pages": [
+      "proekty",
+      "istoriya-yakutii",
+      "tom-tretij"
+    ],
+    "path": "/proekty-istoriya-yakutii-tom-tretij"
+  },
+  {
+    "label": "Переработка мусора",
+    "pages": [
+      "proekty",
+      "pererabotka-musora"
+    ],
+    "path": "/proekty-pererabotka-musora"
+  },
+  {
+    "label": "СМИ о нас",
+    "pages": [
+      "smi-o-nas"
+    ],
+    "path": "/smi-o-nas"
+  },
+  {
+    "label": "Структура",
+    "pages": [
+      "struktura"
+    ],
+    "isMenu": 2,
+    "path": "/struktura"
+  },
+  {
+    "label": "Западно-Якутский научный центр",
+    "pages": [
+      "struktura",
+      "zapadno-yakutskij-nauchnyj-centr"
+    ],
+    "path": "/struktura-zapadno-yakutskij-nauchnyj-centr"
+  },
+  {
+    "label": "Научно-образовательный центр",
+    "pages": [
+      "struktura",
+      "nauchno-obrazovatelnyj-centr"
+    ],
+    "path": "/struktura-nauchno-obrazovatelnyj-centr"
+  },
+  {
+    "label": "Научный экспертно-аналитический центр",
+    "pages": [
+      "struktura",
+      "nauchnyj-ekspertno-analiticheskij-centr"
+    ],
+    "path": "/struktura-nauchnyj-ekspertno-analiticheskij-centr"
+  },
+  {
+    "label": "Отдел изучения мамонтовой фауны",
+    "pages": [
+      "struktura",
+      "otdel-izucheniya-mamontovoj-fauny"
+    ],
+    "path": "/struktura-otdel-izucheniya-mamontovoj-fauny"
+  },
+  {
+    "label": "Отдел энциклопедистики",
+    "pages": [
+      "struktura",
+      "otdel-enciklopedistiki"
+    ],
+    "path": "/struktura-otdel-enciklopedistiki"
+  },
+  {
+    "label": "Отдел этносоциальных и этноэкономических исследований геосистем",
+    "pages": [
+      "struktura",
+      "otdel-etnosocialnyx-i-etnoekonomicheskix-issledovanij-geosistem"
+    ],
+    "path": "/struktura-otdel-etnosocialnyx-i-etnoekonomicheskix-issledovanij-geosistem"
+  },
+  {
+    "label": "Центр интеллектуальной собственности",
+    "pages": [
+      "struktura",
+      "centr-intellektualnoj-sobstvennosti"
+    ],
+    "path": "/struktura-centr-intellektualnoj-sobstvennosti"
+  },
+  {
+    "label": "Южно-Якутский научный центр",
+    "pages": [
+      "struktura",
+      "yuzhno-yakutskij-nauchnyj-centr"
+    ],
+    "path": "/struktura-yuzhno-yakutskij-nauchnyj-centr"
+  },
+  {
+    "label": "Телефонный справочник",
+    "pages": [
+      "spravochnik"
+    ],
+    "path": "/spravochnik"
+  },
+  {
+    "label": "Экспертная деятельность",
+    "pages": [
+      "ekspertnaya-deyatelnost"
+    ],
+    "path": "/ekspertnaya-deyatelnost"
+  }
+]

@@ -1,0 +1,29 @@
+@import "client/components/themes/params"
+.theme-main
+  a
+    color: $blue-color
+  .blue-box
+    background-color: $blue-color
+    color: whitesmoke
+    a
+      color: whitesmoke
+  img#nikolaev
+    -webkit-transform: scaleX(-1)
+    transform: scaleX(-1)
+  @media screen and (min-width: $min-width)
+    #bottom-info
+      display: flex
+      justify-content: space-between
+      div
+        text-align: left
+
+  .partners
+    display: flex
+    @media screen and (max-width: $min-width)
+      flex-wrap: wrap
+    align-content: baseline
+    a
+      margin: auto
+      img
+        max-width: 100px
+        max-height: 100px
