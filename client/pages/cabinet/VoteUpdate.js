@@ -66,6 +66,12 @@ export default function VoteUpdate(props) {
                     <FormFeedback>Должно быть больше 0</FormFeedback>
                 </FormGroup>
 
+                <FormGroup>
+                    <Label>Количество дней активности</Label>
+                    <Input defaultValue={model.days} name="days" onChange={setField} type="number" invalid={model.days < 1}/>
+                    <FormFeedback>Должно быть не меньше 1</FormFeedback>
+                </FormGroup>
+
                 <FormGroup check>
                     <Label check>
                         <Input type="checkbox" name="published" onChange={setField} defaultChecked={model.published}/>

@@ -12,7 +12,7 @@ const modelSchema = new Schema({
         description: {type: String, label: 'Описание', control: 'markdown'},
         published: {type: Boolean},
         votes: [{type: Number}],
-        days: {type: Number, label:'Дни пока действительно'},
+        days: {type: Number, label:'Дни пока действительно', default:1},
         count: {type: Number, label:'Количество голосов'},
         user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
         photo: {type: mongoose.Schema.Types.ObjectId, ref: 'File'},

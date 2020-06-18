@@ -51,7 +51,7 @@ module.exports.controller = function (app) {
                 if (!model) return res.status(404).send({message: `No Quiz with id ${req.params.id}`})
                 if (!model.user.equals(req.session.userId)) return res.status(403).send({message: `Wrong user`})
 
-                const fields = ['name', 'published', 'description', 'count'];
+                const fields = ['name', 'published', 'description', 'count', 'days'];
                 for (const field of fields) {
                     if (req.body[field] !== null) model[field] = req.body[field];
                 }
