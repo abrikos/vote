@@ -11,10 +11,15 @@ export default function VoteProcess(props) {
 
 
     useEffect(() => {
+        getModel()
+        setInterval(getModel, 2000)
+
+    }, [])
+
+    function getModel() {
         props.api(`/vote/${props.id}/view`)
             .then(setModel)
-        console.log('zzzzzzzzzzzz',)
-    }, [])
+    }
 
     function doVote(e) {
         props.api(`/vote/${props.id}/process`, {vote: e.target.value})
