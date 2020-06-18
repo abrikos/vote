@@ -9,8 +9,8 @@ class API {
     };
 
 
-    async postData(path = '', data = {}) {
-        console.log('POST', path)
+    async postData(path = '', data = {}, options = {}) {
+        if(!options.noLog) console.log('POST', path)
         const url = '/api' + path;
         return new Promise((resolve, reject) => {
             axios.post(url, data)

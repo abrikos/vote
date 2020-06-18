@@ -130,9 +130,9 @@ export default function App() {
 
         clearAlert: () => setAlert({isOpen: false}),
 
-        async api(path, data) {
+        async api(path, data, options) {
             //setLoading(true);
-            const res = await API.postData(path, data);
+            const res = await API.postData(path, data, options);
             if (!res.error) return res;
             this.clearAlert();
             switch (res.error) {
