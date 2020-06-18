@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import MyBreadCrumb from "client/components/MyBreadCrumb";
 import {Button, Input} from "reactstrap";
 import ErrorPage from "client/components/service/ErrorPage";
+import {navigate} from "hookrouter"
 
 export default function Cabinet(props) {
     if (!props.authenticatedUser) return <ErrorPage {...{error: 403, message: 'Доступ запрещен'}}/>;
@@ -17,8 +18,8 @@ export default function Cabinet(props) {
     }
 
     function voteCreate(e) {
-        props.api('/vote/create', props.formToObject(e.target))
-            .then(props.login())
+        props.api('/cabinet/vote/create')
+            .then(v=>navigate(`/cabinet/vote/${v.id}/update`))
     }
 
 

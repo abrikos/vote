@@ -16,7 +16,7 @@ class API {
             axios.post(url, data)
                 .then(res => resolve(res.data))
                 .catch(err => {
-                    resolve({error: err.response.status, message: err.response.statusText})
+                    resolve({error: err.response.status, message: err.response.data.message || err.response.statusText})
                 })
 
         })

@@ -22,7 +22,7 @@ export default function MarkdownEditor(props) {
     function handleChange(e) {
 
         setValue(e.target.value)
-        if (props.onChange) props.onChange(e.target.value)
+        if (props.onChange) props.onChange(e)
     }
 
     return <>

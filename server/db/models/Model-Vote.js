@@ -10,6 +10,9 @@ const Schema = mongoose.Schema;
 const modelSchema = new Schema({
         name: {type: String, label: 'Название'},
         description: {type: String, label: 'Описание', control: 'markdown'},
+        published: {type: Boolean},
+        votes: [{type: Number}],
+        count: {type: Number},
         user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
         photo: {type: mongoose.Schema.Types.ObjectId, ref: 'File'},
         files: [{type: mongoose.Schema.Types.ObjectId, ref: 'File'}],
@@ -51,6 +54,16 @@ modelSchema.virtual('date')
 modelSchema.virtual('adminLink')
     .get(function () {
         return `/admin/${path}/${this.id}/update`
+    });
+
+modelSchema.virtual('editable')
+    .get(function () {
+        return this.votes.length >= this.count
+    });
+
+modelSchema.virtual('voteProcess')
+    .get(function () {
+        return new Array(this.count)
     });
 
 modelSchema.virtual('photoPath')

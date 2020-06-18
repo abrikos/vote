@@ -27,13 +27,29 @@ module.exports.controller = function (app) {
             .catch(e => res.send(app.locals.sendError({error: 500, message: e.message})))
     });
 
+    app.post('/api/vote/:id/process', (req, res) => {
+        Mongoose.vote.findById(req.params.id)
+            .populate(Mongoose.vote.populationAdmin)
+            .then(vote => {
+                if (!vote) return res.status(404).send({message: `No Vote with id ${req.params.id}`})
+                if(vote.editable){
+                    vote.votes.push(req.body.vote)
+                    vote.save(v=>res.send(v))
+                }else{
+                    return res.status(404).send({message: `Голосование завершено`})
+                }
+
+            })
+            .catch(e => res.send(app.locals.sendError({error: 500, message: e.message})))
+    });
+
     app.post('/api/cabinet/vote/:id/update', passportLib.isLogged, (req, res) => {
         Mongoose.vote.findById(req.params.id)
             .then(model => {
                 if (!model) return res.status(404).send({message: `No Quiz with id ${req.params.id}`})
                 if (!model.user.equals(req.session.userId)) return res.status(403).send({message: `Wrong user`})
 
-                const fields = ['name', 'published', 'description'];
+                const fields = ['name', 'published', 'description', 'count'];
                 for (const field of fields) {
                     if (req.body[field] !== null) model[field] = req.body[field];
                 }
