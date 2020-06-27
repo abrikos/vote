@@ -26,13 +26,15 @@ export default function MarkdownEditor(props) {
     }
 
     return <>
+        <Input name={props.name} defaultValue={value} invalid={props.invalid} type="textarea" rows={3} onChange={handleChange}/>
+        <div className="text-right">
         <ModalDialog
             body={<MarkDown source={value}/>}
             //open={true}
             header="Форматированный текст"
             //controls={[<Button onClick={submit} color="primary">Отправить</Button>, <Button onClick={clear} color="warning">Отменить</Button>]}
             buttonText="Предпросмотр"/>
-        <Input name={props.name} defaultValue={value} invalid={props.invalid} type="textarea" rows={3} onChange={handleChange}/>
+        </div>
 
     </>
 
