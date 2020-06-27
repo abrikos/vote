@@ -1,6 +1,8 @@
 import User from "server/db/models/Model-User";
 import file from "server/db/models/Model-File";
+import question from "server/db/models/Model-Question";
 import vote from "server/db/models/Model-Vote";
+import bulletin from "server/db/models/Model-Bulletin";
 
 const mongoose = require("mongoose");
 require('dotenv').config();
@@ -29,7 +31,7 @@ const Mongoose = {
     isValidId: function (id) {
         return mongoose.Types.ObjectId.isValid(id)
     },
-    User, file, vote
+    User, file, vote, question, bulletin
 
 };
 export default Mongoose;

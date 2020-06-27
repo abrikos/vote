@@ -6,8 +6,8 @@ import AdminIndex from "client/pages/admin/AdminIndex";
 import Contacts from "client/pages/contacts/contacs";
 import SiteMap from "client/pages/SiteMap";
 import ModelList from "client/pages/model/ModelList";
-import VoteUpdate from "client/pages/cabinet/VoteUpdate";
-import VoteProcess from "client/pages/cabinet/VoteProcess";
+import AgendaUpdate from "client/pages/cabinet/VoteUpdate";
+import Bulletin from "client/pages/vote/Bulletin";
 
 export default function Routes(props) {
 
@@ -25,8 +25,8 @@ export default function Routes(props) {
         "/wp-admin": () => <Login {...props}/>,
         "/admin/:control": (params) => <AdminIndex {...params} {...props}/>,
         "/admin/:control/:id/update": (params) => <AdminIndex {...params} {...props}/>,
-        "/cabinet/vote/:id/update": (params) => <VoteUpdate {...params} {...props}/>,
-        "/vote/:id/:link": (params) => <VoteProcess {...params} {...props}/>,
+        "/cabinet/vote/:id/update": (params) => <AgendaUpdate {...params} {...props}/>,
+        "/bulletin/:hash": (params) => <Bulletin {...params} {...props}/>,
 
 
         //"/persons/:type": (params) => <PersonListLarge {...params} {...props}/>,

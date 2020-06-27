@@ -2,17 +2,15 @@
 import transliterate from "transliterate";
 import moment from "moment";
 
-const modelLabel = 'Повестка';
-const path = 'vote'
+const modelLabel = 'Голосование';
+const path = 'question'
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const modelSchema = new Schema({
-        name: {type: String, label: 'Название'},
-        description: {type: String, label: 'Описание', control: 'markdown'},
-        days: {type: Number, label: 'Дни пока действительно', default: 1},
-        published: Boolean,
-        user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+        name: {type: String, label: 'Вопрос голосования', control: 'markdown'},
+        votes: [{type: Number}],
+        vote: {type: mongoose.Schema.Types.ObjectId, ref: 'vote'},
         photo: {type: mongoose.Schema.Types.ObjectId, ref: 'File'},
         files: [{type: mongoose.Schema.Types.ObjectId, ref: 'File'}],
     },
@@ -26,11 +24,11 @@ const modelSchema = new Schema({
 
 
 modelSchema.statics.population = [
-    'photo', 'files', 'questions', 'bulletins'
+    'photo', 'files', 'vote'
 ];
 
 modelSchema.statics.populationAdmin = [
-    'photo', 'files', 'questions', 'bulletins'
+    'photo', 'files', 'vote'
 ];
 
 modelSchema.formOptions = {
@@ -40,53 +38,35 @@ modelSchema.formOptions = {
     searchFields: ['name'],
 }
 
-modelSchema.virtual('questions', {
-    ref: 'question',
-    label: 'голосование',
-    property: 'name',
-    readOnly: true,
-    localField: '_id',
-    foreignField: 'vote',
-    justOne: false // set true for one-to-one relationship
-});
-
-modelSchema.virtual('bulletins', {
-    ref: 'bulletin',
-    localField: '_id',
-    foreignField: 'vote',
-    justOne: false // set true for one-to-one relationship
-});
-
-modelSchema.virtual('voted')
-    .get(function () {
-        return this.bulletins.filter(b=>b.voted).length
-    });
-
-modelSchema.virtual('complete')
-    .get(function () {
-        return this.voted === this.bulletins.length
-    });
-
-
-
 modelSchema.virtual('date')
     .get(function () {
-        return moment(this.createdAt).format('DD.MM.YYYY')
+        return moment(this.createdAt).format('YYYY-MM-DD HH:mm:ss')
     })
     .set(function (val) {
         this.createdAt = moment(val).format('YYYY-MM-DD HH:mm:ss');
 
     });
 
+
 modelSchema.virtual('adminLink')
     .get(function () {
         return `/admin/${path}/${this.id}/update`
+    });
+
+modelSchema.virtual('for')
+    .get(function () {
+        return this.votes.filter(v => v).length
+    });
+modelSchema.virtual('against')
+    .get(function () {
+        return this.votes.filter(v => !v).length
     });
 
 modelSchema.virtual('photoPath')
     .get(function () {
         return this.photo ? this.photo.path : '/noImage.png'
     });
+
 
 modelSchema.virtual('link')
     .get(function () {
